@@ -1,0 +1,11 @@
+- if @messages.empty?
+  .text-center
+    span.text-warning There are no messages!
+- else
+  h3 All Messages
+  table.table.table-bordered data-messages=''
+    tr
+      th Recipient
+      th Body
+      th Status
+    = render partial: 'message', collection: @messages
