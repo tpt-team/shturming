@@ -1,3 +1,5 @@
+= line_chart @messages.group(:status).group_by_day(:created_at, format: '%B %d, %Y').count
+
 - if @messages.empty?
   .text-center
     span.text-warning There are no messages!
