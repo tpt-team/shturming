@@ -1,0 +1,24 @@
+m = $('#modal');
+m.html('<%= j(render partial: 'show') %>');
+m.modal('show');
+new Highcharts.Chart({
+  chart: { renderTo: 'chart_' + <%= @recipient.id %> },
+  title: { text: 'Orders by Day' },
+  xAxis: { type: 'datetime' },
+  yAxis: { title: { text: 'Messages' } },
+  tooltip: {
+    formatter: function () {
+      return Highcharts.dateFormat('%B %d, %Y', this.x) + ': ' + Highcharts.numberFormat(this.y);
+    }
+  },
+  series: [
+    <% { Success: @messages.by_status('success'), Fail: @messages.by_status('fail') }.each do |name, orders| %>
+      {
+        name: '<%= name %>',
+        pointInterval: <%= 1.day * 1000 %>,
+        pointStart: <%= @messages.first.created_at.to_i * 1000 %>,
+        data: <%= (@messages.first.created_at.to_date..Date.today).map { |date| orders.total_on(date).count } %>
+      },
+    <% end %>
+  ]
+});

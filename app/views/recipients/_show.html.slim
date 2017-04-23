@@ -1,0 +1,8 @@
+.modal-dialog.modal-lg
+  .modal-content
+    .modal-header
+      button.close data-dismiss="modal" type="button"  ×
+      h3 = @recipient.email
+    .modal-body
+      .chart id="chart_#{@recipient.id}"
+      = render 'messages', messages: @messages
