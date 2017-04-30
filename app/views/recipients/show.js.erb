@@ -1,24 +1,93 @@
 m = $('#modal');
 m.html('<%= j(render partial: 'show') %>');
 m.modal('show');
-new Highcharts.Chart({
-  chart: { renderTo: 'chart_' + <%= @recipient.id %> },
-  title: { text: 'Orders by Day' },
-  xAxis: { type: 'datetime' },
-  yAxis: { title: { text: 'Messages' } },
-  tooltip: {
-    formatter: function () {
-      return Highcharts.dateFormat('%B %d, %Y', this.x) + ': ' + Highcharts.numberFormat(this.y);
-    }
-  },
-  series: [
-    <% { Success: @messages.by_status('success'), Fail: @messages.by_status('fail') }.each do |name, orders| %>
-      {
-        name: '<%= name %>',
-        pointInterval: <%= 1.day * 1000 %>,
-        pointStart: <%= @messages.first.created_at.to_i * 1000 %>,
-        data: <%= (@messages.first.created_at.to_date..Date.today).map { |date| orders.total_on(date).count } %>
+var seriesOptions = [],
+  seriesCounter = 0,
+  names = ['success', 'fail'];
+
+function createChart() {
+  Highcharts.stockChart('container', {
+    chart: {
+      zoomType: 'x'
+    },
+    subtitle: {
+      text: document.ontouchstart === undefined ?
+      'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+    },
+    xAxis: {
+      type: 'datetime'
+    },
+    legend: {
+      enabled: false
+    },
+    plotOptions: {
+      area: {
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1
+          },
+          stops: [
+            [0, Highcharts.getOptions().colors[0]],
+            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+          ]
+        },
+        marker: {
+          radius: 2
+        },
+        lineWidth: 1,
+        states: {
+          hover: {
+            lineWidth: 1
+          }
+        },
+        threshold: null
       },
-    <% end %>
-  ]
+      series: {
+        compare: 'percent',
+        showInNavigator: true
+      }
+    },
+    rangeSelector: {
+      selected: 4
+    },
+
+    yAxis: {
+      labels: {
+        formatter: function () {
+          return (this.value > 0 ? ' + ' : '') + this.value + '%';
+        }
+      },
+      plotLines: [{
+        value: 0,
+        width: 2,
+        color: 'silver'
+      }]
+    },
+
+    tooltip: {
+      pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+      split: true
+    },
+
+    series: seriesOptions
+  });
+}
+
+$.each(names, function (i, name) {
+  $.getJSON('/messages', { status: name.toLowerCase(), recipient_id: <%= @recipient.id %> },    function (data) {
+
+    seriesOptions[i] = {
+      name: name,
+      data: data
+    };
+
+    seriesCounter += 1;
+
+    if (seriesCounter === names.length) {
+      createChart();
+    }
+  });
 });
