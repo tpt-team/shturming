@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411095249) do
+ActiveRecord::Schema.define(version: 20170423073643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,17 @@ ActiveRecord::Schema.define(version: 20170411095249) do
   create_table "messages", force: :cascade do |t|
     t.integer  "status"
     t.text     "body"
-    t.string   "recipient"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "recipient_id"
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "messages", "recipients"
 end

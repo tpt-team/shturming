@@ -1,0 +1,12 @@
+- if @recipients.empty?
+  .text-center
+    span.text-warning There are no recipients!
+- else
+  h3 All Recipients
+  table.table.table-bordered data-messages=''
+    tr
+      th Email
+      th Count
+    = render partial: 'recipient', collection: @recipients
+  .text-center
+    = will_paginate @recipients

@@ -8,6 +8,7 @@ end
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'ffaker'
+gem 'groupdate', '~> 2.1.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
@@ -17,9 +18,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim-rails'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
 
 group :development do
