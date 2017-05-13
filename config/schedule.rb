@@ -1,4 +1,4 @@
-set :environment, :development
+# set :environment, :development
 
 every 2.minutes do
   rake 'send_morning_email'
