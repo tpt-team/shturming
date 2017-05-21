@@ -1,0 +1,4 @@
+tr class = message.status id="admin_message_#{message.id}"
+  td = message.body.truncate(100, separator: ' ')
+  td = message.status
+  td = link_to 'Resent', admin_message_path(message), method: :patch, remote: true if message.fail?
