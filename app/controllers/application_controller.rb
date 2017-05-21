@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     @users ||= [
       {
         name: 'John Smith',
-        email: '1@mail.com'
+        email: 'siava-pk@mail.ru'
       },
       {
         name: 'Jeki Chan',
