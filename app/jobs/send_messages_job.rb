@@ -3,8 +3,7 @@ class SendMessagesJob < ApplicationJob
 
   def perform
     ApplicationController.new.users.each do |user|
-      p user
-      # MessageMailer.morning_email('body', user).deliver_later
+      MessageMailer.morning_email('body', user).deliver_later
     end
   end
 end
