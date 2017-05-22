@@ -1,12 +1,14 @@
-10.times do
-  Recipient.create(
-    email: FFaker::Internet.email
-  )
-end
-50.times do
-  Message.create(
-    body: FFaker::Book.description,
-    recipient: Recipient.all.sample,
-    status: Message.statuses.values.sample
-  )
-end
+Recipient.create(
+  email: 'jaroslav.typitsky@gmail.com',
+  first_name: 'Yaroslav',
+  last_name: 'Typitskyi',
+  gender: 0,
+  birthday: '12/02/1996'.to_date
+)
+Recipient.create(
+  email: 'vlad@active-bridge.com',
+  first_name: 'Vladislav',
+  last_name: 'Typitskyi',
+  gender: 0,
+  birthday: '12/02/1996'.to_date
+)
