@@ -4,7 +4,7 @@ class Admin::MessagesController < Admin::AdminController
   end
 
   def update
-    MessageMailer.morning_email(message.body, message.recipient).deliver
+    MessageMailer.morning_email(message.recipient, message.body).deliver
     message.success!
   rescue => e
     Rails.logger.error(e.message)
