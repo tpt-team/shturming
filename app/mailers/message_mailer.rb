@@ -1,7 +1,7 @@
 class MessageMailer < ApplicationMailer
-  def morning_email(body, user)
-    @body = body
-    @email = user[:email]
+  def morning_email(user, body='')
+    @body = body.presence || 'Гарного і продуктивного Вам дня!'
+    @user = user
     mail to: user[:email], subject: 'Good morning'
   end
 end
