@@ -1,0 +1,8 @@
+tr id="admin_recipient_#{recipient.id}"
+  td = recipient.first_name
+  td = recipient.last_name
+  td = recipient.email
+  td = recipient.messages.count
+  td
+    = link_to admin_recipient_path(recipient), class: 'button', method: :delete, remote: true do
+      = fa_icon 'trash'

@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     messages = recipient ? recipient.messages : Message.all
     @data = messages.by_status(params[:status])
                     .order(:created_at)
-                    .group_by { |a| a.created_at.to_i * 1000 }
+                    .group_by { |a| a.created_at.to_datetime.to_i * 1000 }
                     .map { |key, value| [key, value.count] }
 
     render json: @data

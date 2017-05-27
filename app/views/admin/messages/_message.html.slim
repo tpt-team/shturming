@@ -1,4 +1,9 @@
 tr class = message.status id="admin_message_#{message.id}"
   td = message.body.truncate(100, separator: ' ')
   td = message.status
-  td = link_to 'Resent', admin_message_path(message), method: :patch, remote: true if message.fail?
+  td
+    = link_to admin_message_path(message), class: 'button', method: :delete, remote: true do
+      = fa_icon 'trash'
+    - if message.fail?
+      = link_to admin_message_path(message), class: 'button', method: :patch, remote: true do
+        = fa_icon 'reply'
