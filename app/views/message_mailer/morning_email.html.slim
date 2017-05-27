@@ -11,8 +11,7 @@ table.table_width_100 border="0" cellpadding="0" cellspacing="0" style=("max-wid
                   div style=("line-height: 44px;")
                     font color="#57697e" face="Arial, Helvetica, sans-serif" size="5" style=("font-size: 34px;")
                       span style=("font-family: Arial, Helvetica, sans-serif; font-size: 24px; color: #ff7e00;")
-                        | Доброго ранку,
-                        =< @recipient.full_name
+                        = t('.hello', name: @recipient.full_name)
                   div style=("height: 40px; line-height: 40px; font-size: 10px;")
               tr
                 td align="center"
