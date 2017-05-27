@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'admin' => 'admin/recipients#index'
 
   namespace :admin do
+    root 'recipients#index'
+
     resources :recipients
     resources :messages
   end
