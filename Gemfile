@@ -8,6 +8,7 @@ end
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2'
 gem 'ffaker'
+gem 'font-awesome-rails'
 gem 'groupdate', '~> 2.1.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
