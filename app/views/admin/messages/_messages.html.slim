@@ -1,6 +1,6 @@
 - if messages.empty?
   .text-center
-    span.text-warning There are no messages!
+    span.text-warning = t('.message_empty')
 - else
   table.table.table-hover data-messages=''
     thead

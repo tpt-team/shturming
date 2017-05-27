@@ -28,3 +28,6 @@ uk:
     recipients:
       recipients:
         recipient_empty: На даний момент не існує користувачів.
+    messages:
+      messages:
+        message_empty: На даний момент не існує повідомлень.
