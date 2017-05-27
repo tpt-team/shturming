@@ -4,10 +4,14 @@ class Admin::MessagesController < Admin::AdminController
   end
 
   def update
-    MessageMailer.morning_email(message.recipient, message.body).deliver
+    MessageMailer.send("#{message.purpose}_email", message.recipient, message.body).deliver
     message.success!
   rescue => e
     Rails.logger.error(e.message)
+  end
+
+  def destroy
+    message.destroy
   end
 
   private

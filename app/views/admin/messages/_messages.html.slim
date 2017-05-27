@@ -2,9 +2,11 @@
   .text-center
     span.text-warning There are no messages!
 - else
-  table.table.table-bordered data-messages=''
-    tr
-      th Body
-      th Status
-      th
-    = render partial: 'message', collection: messages
+  table.table.table-hover data-messages=''
+    thead
+      tr
+        th Body
+        th Status
+        th
+    tbody
+      = render partial: 'message', collection: messages
