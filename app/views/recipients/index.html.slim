@@ -1,13 +1,13 @@
 - if @recipients.empty?
   .text-center
-    span.text-warning There are no recipients!
+    span.text-warning = t('.empty')
 - else
-  h3 All Recipients
+  h3 = t('.recipients')
   table.table.table-bordered data-messages=''
     tr
       th Email
-      th Count
+      th = t('.count')
     = render partial: 'recipient', collection: @recipients
   .text-center
-    = will_paginate @recipients
+    = will_paginate @recipients, renderer: BootstrapPagination::Rails
   #container
