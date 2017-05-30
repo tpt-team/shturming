@@ -1,8 +1,9 @@
-tr id="admin_recipient_#{recipient.id}"
-  td = recipient.first_name
+tr.recipients__tr id="admin_recipient_#{recipient.id}"
+  td.recipients__td--bold = recipient.first_name
   td = recipient.last_name
-  td = recipient.email
+  td.recipients__td--link = recipient.email
+  td = recipient.birthday
   td = recipient.messages.count
   td
-    = link_to admin_recipient_path(recipient), class: 'button', method: :delete, remote: true do
-      = fa_icon 'trash'
+    = link_to admin_recipient_path(recipient), class: 'recipients__button recipients__button--close', method: :delete, remote: true do
+      = fa_icon('times', aria: { hidden: true })
