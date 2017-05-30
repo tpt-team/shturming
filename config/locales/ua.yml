@@ -1,4 +1,4 @@
-uk:
+ua:
   morning_messages:
     - Ми знаходимося тут, щоб внести свій внесок у цей світ. Інакше навіщо ми тут?
     - Ми їмо їжу, яку вирощують інші люди. Ми носимо одяг, який зшили інші люди. Ми говоримо на мовах, які були придумані іншими людьми. Думаю, прийшов час і нам стати корисними людству.
@@ -26,8 +26,29 @@ uk:
       hello: Доброго дня, %{name}
   admin:
     recipients:
-      recipients:
-        recipient_empty: На даний момент не існує користувачів.
+      index:
+        first_name: Ім'я
+        last_name: Фамілія
+        email: Email
+        birthday: День народження
+        count_messages: Кількість повідомлень
+        count_list: 'Відображено %{count} з %{all}'
+        recipients_empty: На даний момент користувачів не існує.
     messages:
-      messages:
-        message_empty: На даний момент не існує повідомлень.
+      index:
+        body: Текст повідомлення
+        status: Статус
+        messages_empty: На даний момент повідомлень не існує.
+      message:
+        success: Успішно
+        fail: Невдало
+  recipients:
+    index:
+      recipients: Користувачі
+      empty: На даний момент користувачів не існує.
+      count: Кількість повідомлень
+    show:
+      name: "Ім'я: %{name}"
+      birthday: 'День народження: %{day}'
+  male: Чоловік
+  female: Жінка

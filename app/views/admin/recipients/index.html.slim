@@ -1,3 +1,23 @@
-= render 'recipients', recipients: @recipients
-.text-center
-  = will_paginate @recipients
+.recipients
+  .container
+    - if @recipients.any?
+      span.recipients__span
+        = t('.count_list',
+           count: @recipients.size,
+           all: @recipients.total_entries)
+      .recipients-container
+        table#recipients.recipients__table
+          thead
+            tr.recipients__head
+              th.recipients__th.black = t('.first_name')
+              th.recipients__th = t('.last_name')
+              th.recipients__th = t('.email')
+              th.recipients__th = t('.birthday')
+              th.recipients__th.recipients__th--small = t('.count_messages')
+              th.recipients__th
+          tbody#tbody.recipients__tbody
+            = render partial: 'recipient', collection: @recipients
+      = will_paginate @recipients, renderer: BootstrapPagination::Rails
+    - else
+      .text-center
+        span.text-warning = t('.recipients_empty')

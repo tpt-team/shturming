@@ -1,6 +1,6 @@
-tr class = message.status id="admin_message_#{message.id}"
+tr class = ('danger' if message.fail?) id="admin_message_#{message.id}"
   td = message.body.truncate(100, separator: ' ')
-  td = message.status
+  td = t(".#{message.status}")
   td
     = link_to admin_message_path(message), class: 'button', method: :delete, remote: true do
       = fa_icon 'trash'

@@ -4,5 +4,20 @@
       button.close data-dismiss="modal" type="button"  ×
       h3 = @recipient.email
     .modal-body
+      .information
+        .biography
+          ul
+            li.name = @recipient.full_name
+            li
+              => fa_icon('envelope')
+              = mail_to @recipient.email
+            li
+              => fa_icon('gift')
+              = @recipient.birthday.strftime('%b %e, %Y')
+            li
+              => fa_icon(@recipient.gender)
+              = t(@recipient.gender)
+        .messages-count
+          span = @messages.count
       .chart#container_show
-      = render 'messages', messages: @messages
+      / = render 'messages', messages: @messages

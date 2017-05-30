@@ -1,6 +1,6 @@
 class Admin::MessagesController < Admin::AdminController
   def index
-    @messages = Message.all.paginate(page: params[:page])
+    @messages = Message.all.paginate(page: params[:page], per_page: 15)
   end
 
   def update

@@ -1,3 +1,15 @@
-= render 'messages', messages: @messages
-.text-center
-  = will_paginate @messages
+.messages.container
+  - if @messages.empty?
+    .text-center
+      span.text-warning = t('.messages_empty')
+  - else
+    table.table.table-hover data-messages=''
+      thead
+        tr
+          th = t('.body')
+          th = t('.status')
+          th
+      tbody
+        = render partial: 'message', collection: @messages
+    .text-center
+      = will_paginate @messages, renderer: BootstrapPagination::Rails

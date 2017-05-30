@@ -1,3 +1,121 @@
-// Place all the styles related to the admin/recipients controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$gold: #EAAE00;
+$white: white;
+$grey: #ccc;
+$light-gray: #C8CCCF;
+$little-dark-gray: #656565;
+$light: #F9FBFF;
+$light-blue: #37A8D5;
+$red: #BA4B37;
+$background: #ecf1f5;
+
+.recipients {
+  padding: 5% 0;
+  background-color: $background;
+  min-height: calc(100vh - 51px);
+
+  &-container {
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  &__span {
+    font-size: 18px;
+    color: $little-dark-gray;
+    margin-right: 40px;
+    padding-left: 10px;
+  }
+
+  &__table {
+    width: 100%;
+
+    th, td {
+      padding: 2%;
+    }
+  }
+
+  &__th {
+    font-size: 14px;
+    color: $light-gray;
+    font-weight: 500;
+
+    &--small { width: 8%; }
+    &--actions { width: 10%; }
+  }
+
+  &__head { background: transparent; }
+
+  &__tbody {
+    border-radius: 10px;
+    box-shadow: 0 0 10px $grey;
+  }
+
+  &__tr {
+    &:nth-child(even) td {
+      background: $white;
+    }
+
+    &:nth-child(odd) td {
+      background: $light;
+    }
+
+    &:first-child {
+      td:first-child {
+        border-top-left-radius: 10px;
+      }
+      td:last-child {
+        border-top-right-radius: 10px;
+      }
+    }
+
+    &:last-child {
+      td:first-child {
+        border-bottom-left-radius: 10px;
+      }
+      td:last-child {
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+
+  &__td {
+    &--bold {
+      font-weight: bold;
+    }
+    &--link {
+      font-weight: bold;
+      color: $light-blue;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    height: 30px;
+    width: 35px;
+    margin: 2px;
+    box-shadow: 0 2px 5px $grey;
+    border-radius: 4px;
+    text-align: center;
+    float: right;
+
+    i {
+      line-height: 30px;
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    &--close, &--close:hover {
+      color: $red !important;
+    }
+
+    &--edit, &--edit:hover {
+      color: $grey !important;
+    }
+
+    &--close:hover, &--edit:hover {
+      opacity: .8;
+    }
+  }
+}
+.black {
+  color: black;
+}
