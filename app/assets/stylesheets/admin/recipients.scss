@@ -14,8 +14,9 @@ $background: #ecf1f5;
   min-height: calc(100vh - 51px);
 
   &-container {
-    padding: 10px;
+    padding: 11px;
     overflow-x: auto;
+    overflow-y: hidden;
   }
 
   &__span {

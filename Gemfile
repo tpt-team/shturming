@@ -22,6 +22,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'whenever', require: false
 gem 'will_paginate-bootstrap'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri

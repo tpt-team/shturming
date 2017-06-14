@@ -1,0 +1,6 @@
+ua:
+  simple_form:
+    labels:
+      info:
+        body: Текст
+        purpose: Тип

@@ -1,0 +1,4 @@
+= simple_form_for @info, url: url, method: method do |f|
+  = f.input :body
+  = f.input :purpose, collection: Info.purposes.keys.map { |i| [i.humanize, i] }, include_blank: false
+  = f.button :submit, 'Зберегти'

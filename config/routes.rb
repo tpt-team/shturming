@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
     resources :recipients
     resources :messages
+    resources :info
   end
 end

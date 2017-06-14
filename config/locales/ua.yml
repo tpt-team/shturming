@@ -42,6 +42,14 @@ ua:
       message:
         success: Успішно
         fail: Невдало
+    info:
+      index:
+        body: Текст інформації
+        purpose: Тип інформації
+        info_empty: На даний момент інформації не існує.
+      info:
+        morning: Ранкове
+        motivation: Мотиваційне
   recipients:
     index:
       recipients: Користувачі
@@ -52,3 +60,15 @@ ua:
       birthday: 'День народження: %{day}'
   male: Чоловік
   female: Жінка
+
+  activerecord:
+    errors:
+      models:
+        info:
+          attributes:
+            body:
+              blank: Текст повинен бути присутнім
+    attributes:
+      info:
+        body: Текст
+        purpose: Тип
