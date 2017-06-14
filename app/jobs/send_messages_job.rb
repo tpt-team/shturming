@@ -2,8 +2,10 @@ class SendMessagesJob < ApplicationJob
   queue_as :default
 
   def perform(recipients, type)
+    infos = Info.send(type)
+    return unless infos.any?
     recipients.each do |recipient|
-      body = I18n.t("#{type}_messages").sample
+      body = infos.sample.body
       begin
         MessageMailer.send("#{type}_email", recipient, body).deliver
         Message.create(recipient: recipient, body: body, status: 0, purpose: type)

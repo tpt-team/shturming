@@ -1,0 +1,17 @@
+.info.container
+  .text-right
+    = link_to 'Створити інформацію', new_admin_info_path, class: 'btn btn-primary'
+  - if @infos.empty?
+    .text-center
+      span.text-warning = t('.info_empty')
+  - else
+    table.table.table-hover data-messages=''
+      thead
+        tr
+          th = t('.body')
+          th = t('.purpose')
+          th
+      tbody
+        = render partial: 'info', collection: @infos
+    .text-center
+      = will_paginate @infos, renderer: BootstrapPagination::Rails

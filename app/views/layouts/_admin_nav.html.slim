@@ -6,10 +6,12 @@ nav.navbar.navbar-default.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Dashboard', admin_root_path, class: 'navbar-brand'
+      = link_to 'Головна', admin_root_path, class: 'navbar-brand'
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          = link_to 'Recipients', admin_recipients_path
+          = link_to 'Користувачі', admin_recipients_path
         li
-          = link_to 'Messages', admin_messages_path
+          = link_to 'Повідомлення', admin_messages_path
+        li
+          = link_to 'Інформація', admin_info_index_path

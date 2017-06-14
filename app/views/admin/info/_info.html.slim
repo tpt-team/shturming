@@ -1,0 +1,8 @@
+tr id="admin_info_#{info.id}"
+  td = info.body.truncate(100, separator: ' ')
+  td = t(".#{info.purpose}")
+  td
+    = link_to admin_info_path(info), class: 'button', method: :delete, remote: true do
+      = fa_icon 'trash'
+    = link_to edit_admin_info_path(info), class: 'button' do
+      = fa_icon 'pencil-square-o'
