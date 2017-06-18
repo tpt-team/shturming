@@ -3,7 +3,7 @@ class Recipient < ApplicationRecord
 
   enum gender: %i(male female)
 
-  validates :first_name, :last_name, :gender, :birthday, :email, presence: true
+  validates :first_name, :last_name, :gender, :email, presence: true
 
   def full_name
     [first_name, last_name].join(' ')

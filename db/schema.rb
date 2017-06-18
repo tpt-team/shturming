@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614180153) do
+ActiveRecord::Schema.define(version: 20170618194528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 20170614180153) do
 
   create_table "recipients", force: :cascade do |t|
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "first_name"
     t.string   "last_name"
     t.date     "birthday"
     t.integer  "gender"
+    t.string   "mood",       default: "5/5"
   end
 
   add_foreign_key "messages", "recipients"

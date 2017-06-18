@@ -1,18 +1,19 @@
-# Recipient.create(
-#   email: 'jaroslav.typitsky@gmail.com',
-#   first_name: 'Yaroslav',
-#   last_name: 'Typitskyi',
-#   gender: 0,
-#   birthday: '12/02/1996'.to_date
-# )
-# Recipient.create(
-#   email: 'vlad@active-bridge.com',
-#   first_name: 'Vladislav',
-#   last_name: 'Typitskyi',
-#   gender: 0,
-#   birthday: '12/02/1996'.to_date
-# )
-
+Recipient.create(
+  email: 'jaroslav.typitsky@gmail.com',
+  first_name: 'Yaroslav',
+  last_name: 'Typitskyi',
+  gender: 0,
+  birthday: '12/02/1996'.to_date,
+  mood: '4/7'
+)
+Recipient.create(
+  email: 'vlad@active-bridge.com',
+  first_name: 'Vladislav',
+  last_name: 'Typitskyi',
+  gender: 0,
+  birthday: '12/02/1996'.to_date,
+  mood: '5/9'
+)
 
 #Morning
 Info.create(
@@ -43,7 +44,7 @@ Info.create(
 )
 Info.create(
   body: "Бути м'яким з людьми - не моя робота. Моя робота - робити їх кращими. Моя робота - брати з різних частин компанії, розчищати шляхи і збирати ресурси для ключових проектів. Взяти цих чудових людей, які є у нас, і підштовхувати їх, і робити їх ще краще, пропонувати їм більш сміливе бачення того, яким має бути майбутнє.",
-  purpose: 1
+  purpose: 2
 )
 Info.create(
   body: "Я думаю, якщо ви зробили щось, і воно вийшло досить непогано - ви повинні піти і зробити щось ще, не зупиняючись на місці занадто надовго. Просто вирішіть, що буде далі.",
@@ -55,9 +56,26 @@ Info.create(
 )
 Info.create(
   body: "Є тільки один спосіб виконати велику роботу - полюбити її. Якщо ви до цього не дійшли, почекайте. Не беріться за справу. Нехай спочатку серце підкаже його вам.",
-  purpose: 1
+  purpose: 3
 )
 Info.create(
   body: "Хороші художники створюють, великі художники крадуть, а справжні художники - виконують замовлення вчасно.",
   purpose: 1
 )
+
+#messages
+Message.create(body: Info.morning.sample.body, status: 0, purpose: 0, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.morning.sample.body, status: 0, purpose: 0, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.morning.sample.body, status: 0, purpose: 0, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.morning.sample.body, status: 0, purpose: 0, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+
+Message.create(body: Info.motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+
+Message.create(body: Info.extra_motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.extra_motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.extra_motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+
+Message.create(body: Info.super_motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)
+Message.create(body: Info.super_motivation.sample.body, status: 0, purpose: 1, recipient: Recipient.all.sample, created_at: (Date.today - 5.days..Date.today).to_a.sample)

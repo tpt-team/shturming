@@ -11,9 +11,10 @@
             li
               => fa_icon('envelope')
               = mail_to @recipient.email
-            li
-              => fa_icon('gift')
-              = @recipient.birthday.strftime('%b %e, %Y')
+            - if @recipient.birthday
+              li
+                => fa_icon('gift')
+                = @recipient.birthday.strftime('%b %e, %Y')
             li
               => fa_icon(@recipient.gender)
               = t(@recipient.gender)
